@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nombre": "Medellinon",
+    "id_responsable": 2,
+    "estado": 1,
+    "created_by": 2,
+    "updated_by": 2
+  },
+  {
+    "id": 2,
+    "nombre": "Bogotanon",
+    "id_responsable": 1,
+    "estado": 1,
+    "created_by": 1,
+    "updated_by": 1
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nombre": "fabian",
+    "foto": "https://res.cloudinary.com/dmvqwbpht/image/upload/v1688172144/homero2_ypav8s.png",
+    "estado": 1,
+    "created_by": 1,
+    "updated_by": 1
+  },
+  {
+    "id": 2,
+    "nombre": "andrés",
+    "foto": "https://res.cloudinary.com/dmvqwbpht/image/upload/v1688172144/homero2_ypav8s.png",
+    "estado": 1,
+    "created_by": 1,
+    "updated_by": 1
+  }
+]

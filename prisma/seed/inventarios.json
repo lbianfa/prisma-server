@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "id_bodega": 1,
+    "id_producto": 1,
+    "cantidad": 10,
+    "created_by": 1,
+    "updated_by": 1
+  },
+  {
+    "id": 2,
+    "id_bodega": 1,
+    "id_producto": 2,
+    "cantidad": 13,
+    "created_by": 3,
+    "updated_by": 3
+  },
+  {
+    "id": 3,
+    "id_bodega": 1,
+    "id_producto": 3,
+    "cantidad": 4,
+    "created_by": 2,
+    "updated_by": 2
+  },
+  {
+    "id": 4,
+    "id_bodega": 2,
+    "id_producto": 1,
+    "cantidad": 7,
+    "created_by": 2,
+    "updated_by": 2
+  },
+  {
+    "id": 5,
+    "id_bodega": 2,
+    "id_producto": 3,
+    "cantidad": 6,
+    "created_by": 4,
+    "updated_by": 4
+  }
+]

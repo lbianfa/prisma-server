@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nombre": "iPhone 12",
+    "descripcion": "El mejor celular",
+    "estado": 1,
+    "created_by": 2,
+    "updated_by": 2
+  },
+  {
+    "id": 2,
+    "nombre": "Xiaomi Pro",
+    "descripcion": "El mejor Xiaomi",
+    "estado": 1,
+    "created_by": 2,
+    "updated_by": 2
+  },
+  {
+    "id": 3,
+    "nombre": "Samsung S6",
+    "descripcion": "El mejor Samsung",
+    "estado": 1,
+    "created_by": 2,
+    "updated_by": 2
+  },
+  {
+    "id": 4,
+    "nombre": "Alcatel X",
+    "descripcion": "El mejor Alcatel",
+    "estado": 1,
+    "created_by": 2,
+    "updated_by": 2
+  }
+]

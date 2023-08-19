@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  @@map("users")
+
+  id Int @id @default(autoincrement())
+  nombre String @unique @db.VarChar(50)
+  foto String @db.VarChar(200)
+  estado Int @db.TinyInt
+  created_by Int
+  updated_by Int
+  created_at DateTime @db.Timestamp() @default(now())
+  updated_at DateTime @db.Timestamp @updatedAt
+  deleted_at DateTime? @db.Timestamp
+
+  // Associations
+  bodega Bodega[]
+}
+
+model Producto {
+  @@map("productos")
+
+  id Int @id @default(autoincrement())
+  nombre String @db.VarChar(50)
+  descripcion String @db.VarChar(300)
+  estado Int @db.TinyInt
+  created_by Int
+  updated_by Int
+  created_at DateTime @db.Timestamp() @default(now())
+  updated_at DateTime @db.Timestamp @updatedAt
+  deleted_at DateTime? @db.Timestamp
+
+  // Associations
+  inventario Inventario[]
+}
+
+model Bodega {
+  @@map("bodegas")
+
+  id Int @id @default(autoincrement())
+  nombre String @db.VarChar(30)
+  id_responsable Int
+  estado Int @db.TinyInt
+  created_by Int
+  updated_by Int
+  created_at DateTime @db.Timestamp() @default(now())
+  updated_at DateTime @db.Timestamp @updatedAt
+  deleted_at DateTime? @db.Timestamp
+
+  // Associations
+  responsable Usuario @relation(fields: [id_responsable], references: [id])
+  inventario Inventario[]
+  histOrigen Historial[] @relation("BodegaOrigen")
+  histDestino Historial[] @relation("BodegaDestino")
+}
+
+model Inventario {
+  @@map("inventarios")
+
+  id Int @unique @default(autoincrement())
+  id_bodega Int
+  id_producto Int
+  cantidad Int
+  created_by Int
+  updated_by Int
+  created_at DateTime @db.Timestamp() @default(now())
+  updated_at DateTime @db.Timestamp @updatedAt
+  deleted_at DateTime? @db.Timestamp
+
+  // PKs
+  @@id([id, id_bodega, id_producto])
+
+  // Associations
+  bodega Bodega @relation(fields: [id_bodega], references: [id])
+  producto Producto @relation(fields: [id_producto], references: [id])
+  historial Historial[]
+}
+
+model Historial {
+  @@map("historiales")
+
+  id Int @id @default(autoincrement())
+  cantidad Int
+  id_bodega_origen Int
+  id_bodega_destino Int
+  id_inventario Int
+  created_by Int
+  updated_by Int
+  created_at DateTime @db.Timestamp() @default(now())
+  updated_at DateTime @db.Timestamp @updatedAt
+  deleted_at DateTime? @db.Timestamp
+
+  // Associations
+  bodega_origen Bodega @relation("BodegaOrigen", fields: [id_bodega_origen], references: [id])
+  bodega_destino Bodega @relation("BodegaDestino", fields: [id_bodega_destino], references: [id])
+  inventario Inventario @relation(fields: [id_inventario], references: [id])
+}
